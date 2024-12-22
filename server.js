@@ -5,12 +5,11 @@ require('dotenv').config();
 const app = express();
 app.use(express.json()); // Middleware for parsing JSON requests
 
-const PORT = process.env.PORT || 3000;
-
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => console.log('Connected to MongoDB'))
-    .catch(err => console.error('Error connecting to MongoDB:', err));
+const uri = process.env.MONGO_URI;
+mongoose.connect(uri)
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.log('Error connecting to MongoDB:', err));
 
 
 // Test route
@@ -19,6 +18,6 @@ app.get('/', (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(3000, () => {
+    console.log(`Server is running`);
 });
