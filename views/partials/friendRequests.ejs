@@ -1,0 +1,25 @@
+<% requests.forEach(function(request) { %>
+    <div class="request">
+        <div class="info">
+            <div class="profile-photo">
+                <img src="<%= request.profilePic %>" alt="">
+            </div>
+            <div>
+                <h5 class="user-name">
+                    <%= request.name %>
+                </h5>
+                <p class="text-muted">
+                    <%= request.mutualFriends %> mutual friends
+                </p>
+            </div>
+        </div>
+        <div class="action">
+            <button class="btn btn-primary">
+                Accept
+            </button>
+            <button class="btn">
+                Decline
+            </button>
+        </div>
+    </div>
+    <% }); %>

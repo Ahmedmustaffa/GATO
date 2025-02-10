@@ -1,0 +1,21 @@
+<nav>
+    <div class="container">
+        
+        <h2 class="logo">
+            GATO
+        </h2>
+
+        <div class="nav-links flex gap2rem taps">
+            <a href="/home" class="<%= activePage === 'home' ? 'active' : '' %>">Home</a>
+            <a href="/explore" class="<%= activePage === 'explore' ? 'active' : '' %>">Explore</a>
+            <a href="/app" class="<%= activePage === 'app' ? 'active' : '' %>">App</a>
+            <a href="/contact" class="<%= activePage === 'contact' ? 'active' : '' %>">Contact Us</a>
+        </div>            
+
+        <div class="profile-photo">
+            <a href="/login">
+            <img src="/images/userIcon.svg" alt="Profile photo">
+            </a>
+        </div>
+    </div>
+</nav>

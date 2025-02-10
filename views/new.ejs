@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create Post</h1>
+    <form action="/feeds" method="post" enctype="multipart/form-data">
+      <label for="caption">Caption</label>
+      <input type="text" name="caption" id="caption" required>
+      <input type="file" name="media" id="media" accept="image/*" required>
+      <button type="submit">Post</button>
+    </form>
+</body>
+</html>

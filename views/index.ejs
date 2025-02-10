@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head' , {pageName : "GATO",styles:["variables","mainnav","buttons","search"]}) %>
+
+    <body>
+
+        <%- include('partials/navbar') %>
+
+        <!------------------------------ MAIN ------------------------------->
+
+        <main>
+            <div class="container">
+                <div class="left">
+                    <%- include('partials/profile',{profileImg:user.profileImg , name:user.fullName , user:user.username}) %>
+
+                    <!------------------------------ SIDEBAR ------------------------------->
+
+                    <div class="sidebar">
+                        <a class="menu-item active">
+                            <span><i class="uil uil-home"></i></span>
+                            <h3>Home</h3>
+                        </a>
+                        <a class="menu-item" id="notifications">
+                            <span><i class="uil uil-bell"><small
+                                        class="notification-count">9+</small></i></span>
+                            <h3>Notifications</h3>
+                            <div class="notifications-popup">
+                                <div>
+                                    <div class="profile-photo">
+                                        <img src="/images/profile-2.jpg" alt="">
+                                    </div>
+                                    <div class="notification-body">
+                                        <b>Andy Tomphson</b> accepted your friend request
+                                        <small class="text-muted">1 HOUR AGO</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="profile-photo">
+                                        <img src="/images/profile-3.jpg" alt="">
+                                    </div>
+                                    <div class="notification-body">
+                                        <b>Brittany Cole</b> commented your post
+                                        <small class="text-muted">2 HOURS AGO</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="profile-photo">
+                                        <img src="/images/profile-4.jpg" alt="">
+                                    </div>
+                                    <div class="notification-body">
+                                        <b>Sofia Verratti</b> commented a post you are tagged
+                                        <small class="text-muted">4 HOURS AGO</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="profile-photo">
+                                        <img src="/images/profile-5.jpg" alt="">
+                                    </div>
+                                    <div class="notification-body">
+                                        <b>Claire Johnson</b> accepted your friend request
+                                        <small class="text-muted">18 HOURS AGO</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="profile-photo">
+                                        <img src="/images/profile-6.jpg" alt="">
+                                    </div>
+                                    <div class="notification-body">
+                                        <b>Ivana Diatlov</b> liked your comment
+                                        <small class="text-muted">1 DAY AGO</small>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="profile-photo">
+                                        <img src="/images/profile-7.jpg" alt="">
+                                    </div>
+                                    <div class="notification-body">
+                                        <b>Jhonatan Torres</b> liked your post
+                                        <small class="text-muted">1 DAY AGO</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="menu-item" id="theme">
+                            <span><i class="uil uil-palette"></i></span>
+                            <h3>Theme</h3>
+                        </a>
+                        <a href="/logout" class="menu-item">
+                            <span><i class="uil uil-sign-out-alt"></i></span>
+                            <h3>Logout</h3>
+                        </a>
+                        <a class="menu-item">
+                            <span><i class="uil uil-setting"></i></span>
+                            <h3>Settings</h3>
+                        </a>
+
+                    </div>
+
+                    <a href="/profile/<%= user._id %>/feeds/new"><button class="btn btn-primary">Create Post</button></a>
+
+                    <!-- <button id="openModal" class="open-btn">Create Post</button> -->
+
+                    <!-- Modal Overlay -->
+                    <!-- <div id="postModal" class="modal">
+                        <div class="modal-content">
+                            <span id="closeModal" class="close">&times;</span>
+                            <h2>Create a Post</h2>
+                            <div class="user flex gap1rem padding1rem space-between">
+                                <div class="profile-photo">
+                                    <img src="/images/profile-13.jpg" alt="Profile photo">
+                                </div>
+                                <div class="info">
+                                    <h3>
+                                        Georgina
+                                    </h3>
+                                </div>
+                            </div>
+                            <textarea placeholder="What's on your mind?"></textarea>
+                            <span class="attachment">
+                                <i class="uil uil-paperclip"></i>
+                            </span>                            
+                            <div class="buttons">
+                                <button id="cancelBtn" class="cancel-btn">Cancel</button>
+                                <button class="post-btn">Post</button>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+
+                <!------------------------------ MIDDLE ------------------------------->
+
+                <div class="middle">
+
+                    <%- include('partials/createPost') %>
+
+                    <div class="feeds">
+
+                        <%- include('partials/post', {posts: [ { profilePic: '/images/profile-13.jpg' ,
+                            username: 'Georgina Cambel' , location: 'Toronto' , timeAgo: '19 MINUTES AGO'
+                            ,postImage: '/images/feed-1.jpg' ,
+                            likedBy:['/images/profile-10.jpg', '/images/profile-4.jpg'
+                            , '/images/profile-14.jpg' ],firstLikeName: 'Tina Welberg' , likeCount: '2,323'
+                            ,caption: 'Lorem ipsum, dolor sit amet consectetur.' , hashtags: '#lifestyle'
+                            ,commentCount: 277 } , { profilePic: '/images/profile-15.jpg' ,
+                            username: 'Antony Stewart' , location: 'North Carolina' , timeAgo: '27 MINUTES AGO'
+                            , postImage: '/images/feed-2.jpg' , likedBy:
+                            ['/images/profile-5.jpg', '/images/profile-9.jpg' , '/images/profile-11.jpg' ],
+                            firstLikeName: 'Ivana Diatlov' , likeCount: '1,711' ,
+                            caption: 'Lorem ipsum, dolor sit amet consectetur.' , hashtags: '#lifestyle' ,
+                            commentCount: 124 }, { profilePic: '/images/profile-15.jpg' ,
+                            username: 'Antony Stewart' , location: 'North Carolina' , timeAgo: '27 MINUTES AGO'
+                            , postImage: '/images/feed-2.jpg' , likedBy:
+                            ['/images/profile-5.jpg', '/images/profile-9.jpg' , '/images/profile-11.jpg' ],
+                            firstLikeName: 'Ivana Diatlov' , likeCount: '1,711' ,
+                            caption: 'Lorem ipsum, dolor sit amet consectetur.' , hashtags: '#lifestyle' ,
+                            commentCount: 124 }, { profilePic: '/images/profile-15.jpg' ,
+                            username: 'Antony Stewart' , location: 'North Carolina' , timeAgo: '27 MINUTES AGO'
+                            , postImage: '/images/feed-2.jpg' , likedBy:
+                            ['/images/profile-5.jpg', '/images/profile-9.jpg' , '/images/profile-11.jpg' ],
+                            firstLikeName: 'Ivana Diatlov' , likeCount: '1,711' ,
+                            caption: 'Lorem ipsum, dolor sit amet consectetur.' , hashtags: '#lifestyle' ,
+                            commentCount: 124 }, { profilePic: '/images/profile-15.jpg' ,
+                            username: 'Antony Stewart' , location: 'North Carolina' , timeAgo: '27 MINUTES AGO'
+                            , postImage: '/images/feed-2.jpg' , likedBy:
+                            ['/images/profile-5.jpg', '/images/profile-9.jpg' , '/images/profile-11.jpg' ],
+                            firstLikeName: 'Ivana Diatlov' , likeCount: '1,711' ,
+                            caption: 'Lorem ipsum, dolor sit amet consectetur.' , hashtags: '#lifestyle' ,
+                            commentCount: 124 }, { profilePic: '/images/profile-15.jpg' ,
+                            username: 'Antony Stewart' , location: 'North Carolina' , timeAgo: '27 MINUTES AGO'
+                            , postImage: '/images/feed-2.jpg' , likedBy:
+                            ['/images/profile-5.jpg', '/images/profile-9.jpg' , '/images/profile-11.jpg' ],
+                            firstLikeName: 'Ivana Diatlov' , likeCount: '1,711' ,
+                            caption: 'Lorem ipsum, dolor sit amet consectetur.' , hashtags: '#lifestyle' ,
+                            commentCount: 124 }]}) %>
+
+                    </div>
+
+                </div>
+
+                <!------------------------------ RIGHT ------------------------------->
+
+                <div class="right">
+
+                    <div class="messages">
+
+                        <%- include('partials/messageshead') %>
+
+                        <%- include('partials/message', { username: "Andy Thompson" ,
+                            profilePic: "/images/profile-2.jpg" , text: "Just do it bruh" , isBold: false,
+                            isActive: true }) %>
+
+                    </div>
+
+                    <div class="friend-request">
+                        <h4>Requests</h4>
+                        <%- include('partials/friendRequests', { requests: [ { profilePic: '/images/profile-5.jpg' ,
+                            name: 'Ivana Diatlov' , mutualFriends: '8' }] }) %>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+
+        <!------------------------------ CUSTOMIZATION ------------------------------->
+
+        <%- include('partials/themes') %>
+
+        <script src="/js/script.js"></script>
+
+
+    </body>
+
+</html>

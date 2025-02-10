@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head' , {pageName : "GATO" , styles:["variables","mainnav","buttons","inputstyle"]}) %>
+<body>
+    <%- include('partials/hnavbar', {activePage : 'signup'}) %>
+    <main class="flex container2 fullview center">
+        <div class="card flex flex-column center padding1hrem fit-content grow">
+            <div class="flex taps connected text-bold padding-2top wfull">
+                <a href="/login" class="wfull text-center">Sign In</a>
+                <a href="" class="active wfull text-center">Sign Up</a>
+            </div>
+            <div class="padding-2top">
+                <form action="/signup" method="POST">
+                    <div class="group">
+                        <input type="text" id="firstName" name="firstName" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="firstName">First Name</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" id="lastName" name="lastName" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="lastName">Last Name</label>
+                    </div>
+                    <div class="group">                           
+                        <input type="text" id="username" name="username" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="username">User</label>
+                    </div>
+                    <div class="group">
+                        <input type="text" id="email" name="email" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="group">                            
+                        <input type="text" id="phoneNumber" name="phoneNumber" value="+20" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="phoneNumber">Phone</label>
+                    </div>
+                    <div class="group">                            
+                        <input type="date" id="birthday" name="birthday" required value="2000-01-01">
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="birthday">Birthday</label>
+                    </div>
+
+                    <div class="group">   
+                        <select name="gender" id="gender" class="wfull" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>                    
+                    </div>
+
+                    <div class="group">                            
+                        <input type="password" id="password" name="password" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="password">Password</label>
+                    </div>
+                    
+                    <div class="flex center gap1rem padding1hrem group">
+                        <button type="submit" class="btn btn-primary radius-sm">Sign Up</button>
+                        <button type="reset" class="btn btn-gray radius-sm">Resest</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>

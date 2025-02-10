@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head' , {pageName : "GATO" , styles : ["variables","mainnav","buttons","home","logoCube"]}) %>
+<body>
+    <%- include('partials/hnavbar', {activePage : 'home'}) %>
+    <div class="lcontainer">
+        <ul>
+            <li><span data-hover="Guidance">G</span></li>
+            <li><span data-hover="Activity">A</span></li>
+            <li><span data-hover="Therapy">T</span></li>
+            <li><span data-hover="Outreach">O</span></li>
+          </ul>
+    </div>
+    <main class="container6">
+        <div class="flex padding0rem card center evenly padding1hrem">
+            <div class="padding1hrem whalf">
+                <img src="/images/shareimg.png" alt="GATO Explore">
+            </div>
+            <div class="padding1hrem whalf flex flex-column gap2rem">
+                <h1>Share your knowledge</h1>
+                <h3 class="text-muted">Through our website, you can publish and share your personal experience</h3 >
+                <div class="hbuttons">
+                    <a href="/signup" class="btn btn-primary radius-sm padding1hrem">Register</a>
+                    <a href="/explore" class="btn radius-sm btn-gray padding1hrem">View as a guest</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex padding0rem card center evenly padding1hrem">            
+            <div class="padding1hrem whalf flex flex-column gap2rem">
+                <h1>GATO Application</h1>
+                <h3 class="text-muted">Launch our application on your Android or iOS gadgets</h3 >
+                <div class="hbuttons">
+                    <a href="https://play.google.com/store/apps/details?id=com.otsimo.app&hl=en" class="btn btn-primary radius-sm padding1hrem">Install</a>
+                    <a href="/app" class="btn radius-sm btn-gray padding1hrem">How to use</a>
+                </div>
+            </div>
+            <div class="padding1hrem whalf">
+                <img src="https://framerusercontent.com/images/t7KnGsROB8MDDxySgk0Y0VrW2JU.png" alt="GATO Application">
+            </div>
+        </div>
+        <div class="faq-container">
+            <h2>FAQ</h2>
+            <div class="faq-item">
+                <div class="question">
+                    <span>What is this website about?</span>
+                    <div class="plus-icon">+</div>
+                </div>
+                <div class="answer">
+                    <p>This website is a dedicated space for parents, caregivers, professionals, and others interested in autism to share their progress, experiences, and techniques. Whether you're using our ASD app or other methods, this platform allows you to connect with a supportive community, exchange ideas, and discuss strategies to help children and individuals with autism thrive. It’s a focused, safe, and collaborative environment where every post contributes to better understanding and support for autism.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="question">
+                    <span>Do I need to use the app?</span>
+                    <div class="plus-icon">+</div>
+                </div>
+                <div class="answer">
+                    <p>No, you don't need to use the app to participate in this community. However, the app provides additional tools and resources that can enhance your experience.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="question">
+                    <span>Is this website free to use?</span>
+                    <div class="plus-icon">+</div>
+                </div>
+                <div class="answer">
+                    <p>Yes, this website is completely free to use. We aim to provide a supportive and accessible platform for everyone.</p>
+                </div>
+            </div>
+        </div>
+                
+    </main>
+    <script>
+        document.querySelectorAll('.question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

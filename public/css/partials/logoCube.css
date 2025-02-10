@@ -1,0 +1,58 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+.lcontainer {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+}
+
+.lcontainer ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    cursor: default;
+}
+
+.lcontainer li {
+display: inline-block;
+line-height: 150px;
+perspective: 1000px;  
+}
+
+.lcontainer li span {
+    font-size: 25px;
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    background: var(--color-primary);
+    transition: transform 0.3s;
+    transform-origin: 50% 0;
+    transform-style: preserve-3d;
+}
+
+.lcontainer li span::before {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-primary);
+    content: attr(data-hover);
+    transition: background 0.3s;
+    transform: rotateX(-90deg);
+    transform-origin: 50% 0;
+}
+
+.lcontainer li:hover span,
+.lcontainer li:focus span {transform: rotateX(90deg) translateY(-22px);}
+
+.lcontainer li:hover span::before,
+.lcontainer li:focus span::before {background:var(--color-primary);}

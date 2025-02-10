@@ -1,0 +1,16 @@
+<div class="message">
+    <div class="profile-photo">
+        <img src="<%= profilePic %>" alt="Profile Photo">
+        <% if (isActive) { %>
+            <div class="active"></div>
+            <% } %>
+    </div>
+    <div class="message-body">
+        <h5 class="user-name">
+            <%= username %>
+        </h5>
+        <p class="<%= isBold ? 'text-bold' : 'text-muted' %>">
+            <%= text %>
+        </p>
+    </div>
+</div>

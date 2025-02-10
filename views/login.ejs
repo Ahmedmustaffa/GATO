@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('partials/head' , {pageName : "GATO" , styles:["variables","mainnav","buttons","inputstyle"]}) %>
+<body>
+    <%- include('partials/hnavbar', {activePage : 'signup'}) %>
+    <main class="flex container2 fullview center">
+        <div class="card flex flex-column center padding1hrem grow">
+            <div class="flex taps connected text-bold padding-2top wfull">
+                <a href="" class="active wfull text-center"">Sign In</a>
+                <a href="/signup" class="wfull text-center">Sign Up</a>
+            </div>
+            <div class="padding-2top">
+                <form action="/login" method="POST">
+
+                    <div class="group">                           
+                        <input type="text" class="" id="username" name="username" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="username">User</label>
+                    </div>
+                    <div class="group">                            
+                        <input type="password" class="" id="password" name="password" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label for="password">Password</label>
+                    </div>
+                    
+                    <div class="flex center gap1rem padding1hrem group">
+                        <button type="submit" class="btn btn-primary radius-sm">Sign In</button>
+                        <button type="reset" class="btn btn-gray radius-sm">Resest</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+</body>
+</html>
