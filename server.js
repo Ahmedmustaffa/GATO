@@ -213,12 +213,18 @@ app.get('/feeds', async (req, res) => {
   res.render('feeds', { user });
 });
 
-
 app.get('/logout', (req, res) => {
-    req.session.destroy(() => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error("Error destroying session:", err);
+            return res.status(500).send("Could not log out");
+        }
+
+        res.clearCookie('connect.sid', { path: '/' }); // Clear session cookie
         res.redirect('/login');
     });
 });
+
 
   
 app.use((req, res, ) => {
