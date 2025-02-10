@@ -9,6 +9,7 @@ const Post = require('./models/post');
 const fs = require('fs');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3000;
@@ -22,15 +23,23 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use(morgan('tiny'));
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URI,  // Use your MongoDB Atlas connection string
+    collectionName: 'sessions',
+  }),
   cookie: {
-    secure: false,
+    secure: process.env.NODE_ENV === 'production', // Secure cookies in production
     httpOnly: true,
+    maxAge: 1000 * 60 * 60 * 24, // 1 day
   },
 }));
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
