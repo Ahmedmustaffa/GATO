@@ -20,7 +20,6 @@ const app = express();
 app.use(methodOverride('_method'));
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(morgan('tiny'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
