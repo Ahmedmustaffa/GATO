@@ -198,7 +198,7 @@ app.post('/feeds', isAuthenticated, upload.single('media'), async (req, res) => 
 });
 
 
-app.get('/feeds', isAuthenticated, async (req, res) => {
+app.get('/feeds', async (req, res) => {
   const user = await User.findById(req.session.user_id).populate('posts');
   res.render('feeds', { user });
 });
