@@ -11,6 +11,7 @@ const bcrypt = require('bcrypt');
 const session = require('express-session');
 require('dotenv').config();
 
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -215,6 +216,6 @@ app.use((req, res, ) => {
 });
 
 // Start the server
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log(`Server is running`);
 });
