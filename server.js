@@ -27,15 +27,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_URI,  // Use your MongoDB Atlas connection string
     collectionName: 'sessions',
   }),
   cookie: {
-    secure: process.env.NODE_ENV === 'production', // Secure cookies in production
+    secure: false,
     httpOnly: true,
-    maxAge: 1000 * 60 * 60 * 24, // 1 day
   },
 }));
 
